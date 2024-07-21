@@ -1,0 +1,136 @@
+D:\Юра\Работа\Гринатом\NodeJS\009 - docker\ndjs-hometask-009-docker_is>docker images
+REPOSITORY   TAG       IMAGE ID       CREATED        SIZE 
+alpine       latest    a606584aa9aa   4 weeks ago    7.8MB
+node         20.10     67d9cdb16016   7 months ago   1.1GB
+
+D:\Юра\Работа\Гринатом\NodeJS\009 - docker\ndjs-hometask-009-docker_is>docker pull busybox:latest
+latest: Pulling from library/busybox
+ec562eabd705: Pull complete
+Digest: sha256:9ae97d36d26566ff84e8893c64a6dc4fe8ca6d1144bf5b87b2b85a32def253c7
+Status: Downloaded newer image for busybox:latest
+docker.io/library/busybox:latest
+
+What's next:
+    View a summary of image vulnerabilities and recommendations → docker scout quickview busybox:latest
+
+D:\Юра\Работа\Гринатом\NodeJS\009 - docker\ndjs-hometask-009-docker_is>docker images
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+alpine       latest    a606584aa9aa   4 weeks ago     7.8MB
+node         20.10     67d9cdb16016   7 months ago    1.1GB
+busybox      latest    65ad0d468eb1   14 months ago   4.26MB
+
+D:\Юра\Работа\Гринатом\NodeJS\009 - docker\ndjs-hometask-009-docker_is>docker run --name pinger -it busybox ping -c 7 netology.ru
+PING netology.ru (188.114.98.233): 56 data bytes
+64 bytes from 188.114.98.233: seq=0 ttl=63 time=55.795 ms
+64 bytes from 188.114.98.233: seq=1 ttl=63 time=38.831 ms
+64 bytes from 188.114.98.233: seq=2 ttl=63 time=55.204 ms
+64 bytes from 188.114.98.233: seq=3 ttl=63 time=52.053 ms
+64 bytes from 188.114.98.233: seq=4 ttl=63 time=38.910 ms
+64 bytes from 188.114.98.233: seq=5 ttl=63 time=53.635 ms
+64 bytes from 188.114.98.233: seq=6 ttl=63 time=45.144 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 38.831/48.510/55.795 ms
+
+D:\Юра\Работа\Гринатом\NodeJS\009 - docker\ndjs-hometask-009-docker_is>docker ps -a                                               
+CONTAINER ID   IMAGE     COMMAND                  CREATED             STATUS                     PORTS     NAMES
+5cfc650f4be7   busybox   "ping -c 7 netology.…"   About an hour ago   Exited (0) 5 minutes ago             pinger
+
+D:\Юра\Работа\Гринатом\NodeJS\009 - docker\ndjs-hometask-009-docker_is>docker logs pinger
+PING netology.ru (188.114.98.233): 56 data bytes
+64 bytes from 188.114.98.233: seq=0 ttl=63 time=55.795 ms
+64 bytes from 188.114.98.233: seq=1 ttl=63 time=38.831 ms
+64 bytes from 188.114.98.233: seq=2 ttl=63 time=55.204 ms
+64 bytes from 188.114.98.233: seq=3 ttl=63 time=52.053 ms
+64 bytes from 188.114.98.233: seq=4 ttl=63 time=38.910 ms
+64 bytes from 188.114.98.233: seq=5 ttl=63 time=53.635 ms
+64 bytes from 188.114.98.233: seq=6 ttl=63 time=45.144 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 38.831/48.510/55.795 ms
+
+D:\Юра\Работа\Гринатом\NodeJS\009 - docker\ndjs-hometask-009-docker_is>docker start pinger
+pinger
+
+D:\Юра\Работа\Гринатом\NodeJS\009 - docker\ndjs-hometask-009-docker_is>docker ps -a        
+CONTAINER ID   IMAGE     COMMAND                  CREATED             STATUS                      PORTS     NAMES
+5cfc650f4be7   busybox   "ping -c 7 netology.…"   About an hour ago   Exited (0) 15 seconds ago             pinger
+
+D:\Юра\Работа\Гринатом\NodeJS\009 - docker\ndjs-hometask-009-docker_is>docker logs pinger
+PING netology.ru (188.114.98.233): 56 data bytes
+64 bytes from 188.114.98.233: seq=0 ttl=63 time=55.795 ms
+64 bytes from 188.114.98.233: seq=1 ttl=63 time=38.831 ms
+64 bytes from 188.114.98.233: seq=2 ttl=63 time=55.204 ms
+64 bytes from 188.114.98.233: seq=3 ttl=63 time=52.053 ms
+64 bytes from 188.114.98.233: seq=4 ttl=63 time=38.910 ms
+64 bytes from 188.114.98.233: seq=5 ttl=63 time=53.635 ms
+64 bytes from 188.114.98.233: seq=6 ttl=63 time=45.144 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 38.831/48.510/55.795 ms
+PING netology.ru (188.114.98.224): 56 data bytes
+64 bytes from 188.114.98.224: seq=0 ttl=63 time=40.404 ms
+64 bytes from 188.114.98.224: seq=1 ttl=63 time=57.428 ms
+64 bytes from 188.114.98.224: seq=2 ttl=63 time=71.113 ms
+64 bytes from 188.114.98.224: seq=3 ttl=63 time=55.897 ms
+64 bytes from 188.114.98.224: seq=4 ttl=63 time=57.556 ms
+64 bytes from 188.114.98.224: seq=5 ttl=63 time=55.031 ms
+64 bytes from 188.114.98.224: seq=6 ttl=63 time=64.559 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 40.404/57.426/71.113 ms
+
+D:\Юра\Работа\Гринатом\NodeJS\009 - docker\ndjs-hometask-009-docker_is>docker logs pinger > log.txt                          
+
+D:\Юра\Работа\Гринатом\NodeJS\009 - docker\ndjs-hometask-009-docker_is>type log.txt
+PING netology.ru (188.114.98.233): 56 data bytes
+64 bytes from 188.114.98.233: seq=0 ttl=63 time=55.795 ms
+64 bytes from 188.114.98.233: seq=1 ttl=63 time=38.831 ms
+64 bytes from 188.114.98.233: seq=2 ttl=63 time=55.204 ms
+64 bytes from 188.114.98.233: seq=3 ttl=63 time=52.053 ms
+64 bytes from 188.114.98.233: seq=4 ttl=63 time=38.910 ms
+64 bytes from 188.114.98.233: seq=5 ttl=63 time=53.635 ms
+64 bytes from 188.114.98.233: seq=6 ttl=63 time=45.144 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 38.831/48.510/55.795 ms
+PING netology.ru (188.114.98.224): 56 data bytes
+64 bytes from 188.114.98.224: seq=0 ttl=63 time=40.404 ms
+64 bytes from 188.114.98.224: seq=1 ttl=63 time=57.428 ms
+64 bytes from 188.114.98.224: seq=2 ttl=63 time=71.113 ms
+64 bytes from 188.114.98.224: seq=3 ttl=63 time=55.897 ms
+64 bytes from 188.114.98.224: seq=4 ttl=63 time=57.556 ms
+64 bytes from 188.114.98.224: seq=5 ttl=63 time=55.031 ms
+64 bytes from 188.114.98.224: seq=6 ttl=63 time=64.559 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 40.404/57.426/71.113 ms
+
+D:\Юра\Работа\Гринатом\NodeJS\009 - docker\ndjs-hometask-009-docker_is>find /i "PING netology.ru" log.txt | find /c /i "PING netology.ru" 
+2
+
+D:\Юра\Работа\Гринатом\NodeJS\009 - docker\ndjs-hometask-009-docker_is>find /i "from 188.114.98" log.txt | find /c /i "from 188.114.98"     
+14
+
+D:\Юра\Работа\Гринатом\NodeJS\009 - docker\ndjs-hometask-009-docker_is>docker rm pinger
+pinger
+
+D:\Юра\Работа\Гринатом\NodeJS\009 - docker\ndjs-hometask-009-docker_is>docker ps -a    
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+D:\Юра\Работа\Гринатом\NodeJS\009 - docker\ndjs-hometask-009-docker_is>docker rmi busybox
+Untagged: busybox:latest
+Untagged: busybox@sha256:9ae97d36d26566ff84e8893c64a6dc4fe8ca6d1144bf5b87b2b85a32def253c7
+Deleted: sha256:65ad0d468eb1c558bf7f4e64e790f586e9eda649ee9f130cd0e835b292bbc5ac
+Deleted: sha256:d51af96cf93e225825efd484ea457f867cb2b967f7415b9a3b7e65a2f803838a
+
+D:\Юра\Работа\Гринатом\NodeJS\009 - docker\ndjs-hometask-009-docker_is>docker images
+REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
+alpine       latest    a606584aa9aa   4 weeks ago    7.8MB
+node         20.10     67d9cdb16016   7 months ago   1.1GB
